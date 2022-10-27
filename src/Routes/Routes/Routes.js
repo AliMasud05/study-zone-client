@@ -26,8 +26,7 @@ export const routes =createBrowserRouter([
                 path:'subject/:id',
                 element:<CardDetails></CardDetails>,
                 loader: ({params}) => fetch(`http://localhost:5000/subject/${params.id}`)
-            }
-            ,
+            },
             {
                 path:'/register',
                 element:<Register></Register>
