@@ -25,9 +25,8 @@ const Login = () => {
                 console.log(user);
                 form.reset();
                 setError('');
-                if (user.emailVerified) {
-                    navigate(from, { replace: true });
-                }
+              navigate(from, { replace: true });
+                
                 
             })
             .catch(error => {

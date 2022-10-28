@@ -27,8 +27,17 @@ const Header = () => {
 
                         <li><Link>FAQ</Link></li>
                         <li><Link to='/blog'>BLOG</Link></li>
-                        <li><Link to='register'>REGISTER</Link></li>
-                        <li><Link to='/login'>LOGIN</Link></li>
+                        <>
+                          {
+                            user?.uid?
+                                    <button onClick={handleLogOut}>LOGOUT</button>
+                            :
+                            <>
+                                        <li><Link to='register'>REGISTER</Link></li>
+                                        <li><Link to='/login'>LOGIN</Link></li>
+                            </>
+                          }
+                        </>
                         <li onClick={handleTheme} ><HiSun style={{ color: 'light', fontSize: '60px' }} /></li>
                     </ul>
                 </div>
@@ -42,9 +51,18 @@ const Header = () => {
                     <li><Link>FAQ</Link></li>
                     <li><Link to='/blog'>BLOG</Link></li>
 
-                        <button onClick={handleLogOut}>LOGOUT</button>
-                    <li><Link to='/register'>REGISTER</Link></li>
-                    <li><Link to='/login'>LOGIN</Link></li>
+                        
+                    <>
+                        {
+                            user?.uid ?
+                                <button onClick={handleLogOut}>LOGOUT</button>
+                                :
+                                <>
+                                    <li><Link to='register'>REGISTER</Link></li>
+                                    <li><Link to='/login'>LOGIN</Link></li>
+                                </>
+                        }
+                    </>
                     
                    
                     <li onClick={handleTheme} ><HiSun style={{ color: 'light', fontSize: '60px' }} /></li>
