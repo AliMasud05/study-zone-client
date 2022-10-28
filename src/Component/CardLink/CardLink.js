@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const CardLink = () => {
     const [items,setItems]=useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/subject')
+        fetch('https://study-zone-server-alimasud05.vercel.app/subject')
         .then(res=>res.json())
         .then(data=>setItems(data));
     },[])

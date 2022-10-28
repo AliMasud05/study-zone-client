@@ -3,6 +3,7 @@ import CardDetails from "../../Component/cardDetails/CardDetails";
 import CheckOut from "../../Component/CheckOut/CheckOut";
 
 import Courses from "../../Component/Courses/Courses";
+import ErrorPage from "../../Component/ErrorPage/ErrorPage";
 import Login from "../../Component/Login/Login";
 import PrivetRoute from "../../Component/PrivetRoute/PrivetRoute";
 
@@ -28,7 +29,7 @@ export const routes = createBrowserRouter([
             {
                 path: 'subject/:id',
                 element: <CardDetails></CardDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/subject/${params.id}`)
+                loader: ({ params }) => fetch(`https://study-zone-server-alimasud05.vercel.app/subject/${params.id}`)
             },
             {
                 path: '/register',
@@ -43,9 +44,14 @@ export const routes = createBrowserRouter([
                 element: <PrivetRoute><CheckOut></CheckOut></PrivetRoute>
             }
 
-
         ]
 
 
+    },
+    
+    {
+        path: '*',
+        element: <ErrorPage></ErrorPage>
     }
+
 ])

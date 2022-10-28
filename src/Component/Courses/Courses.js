@@ -8,7 +8,7 @@ import './Courses.css'
 const Courses = () => {
     const [subjects,setSubjects]=useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/subjects')
+        fetch('https://study-zone-server-alimasud05.vercel.app/subjects')
         .then(res=>res.json())
         .then(data=>setSubjects(data))
 
