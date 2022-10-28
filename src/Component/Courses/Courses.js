@@ -15,8 +15,8 @@ const Courses = () => {
     },[])
    // console.log(subjects);
     return (
-        <div className='courses-holder w-11/12 mx-auto'>
-            <div className='course-card'>
+        <div className='grid md:grid-cols-1  lg:grid-cols-5 w-full mx-auto my-3'>
+            <div className='course-card lg:col-span-4 justify-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 g w-full  mx-auto '>
                 {
                     subjects.map(sub=><Course
                     key={sub.id}
@@ -27,7 +27,7 @@ const Courses = () => {
                 
             </div>
             
-            <div className='fixed right-60 card-link'>
+            <div  className=' lg:col-span-1 w-full  card-link'>
                <CardLink></CardLink>
             </div>
         </div>

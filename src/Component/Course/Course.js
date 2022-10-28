@@ -5,11 +5,11 @@ import './Course.css'
 
 const Course = ({sub}) => {
     const{enroll,setEnroll}=useContext(AuthContext);
-    console.log(sub);
+    //console.log(sub);
     const { picture, sub_title, balance }=sub;
     
     return (
-        <div className='card-container'>
+        <div className='card-container mx-auto'>
             <div className="card w-96 glass">
                 <figure><img src={picture} alt="car!" /></figure>
                 <div className="card-body">

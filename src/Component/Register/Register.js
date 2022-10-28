@@ -139,7 +139,7 @@ const Register = () => {
                 Image
               </label>
               <input
-                type="text"
+                type="url"
                 name="image"
                 className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
               />
