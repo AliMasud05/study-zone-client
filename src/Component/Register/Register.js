@@ -66,12 +66,8 @@ const Register = () => {
           Login to your account
         </h2>
         <p className="text-sm text-center dark:text-gray-400">
-          Dont have account?
-          <a
-            href="#"
-            rel="noopener noreferrer"
-            className="focus:underline hover:underline"
-          >
+          Don't have account?
+          <a  href="#"   className="focus:underline hover:underline">
             Sign up here
           </a>
         </p>
@@ -91,8 +87,7 @@ const Register = () => {
             </svg>
             <p>Login with Google</p>
           </button>
-          <button
-            onClick={handleGitHubProvider}
+          <button  onClick={handleGitHubProvider}
             aria-label="Login with GitHub"
             role="button"
             className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
@@ -131,7 +126,7 @@ const Register = () => {
             </div>
             <div className="space-y-2">
               <label htmlFor="email" className="block text-sm">
-                Email address
+                Name
               </label>
               <input
                 type="text"
@@ -141,7 +136,7 @@ const Register = () => {
             </div>
             <div className="space-y-2">
               <label htmlFor="email" className="block text-sm">
-                Email address
+                Image
               </label>
               <input
                 type="text"

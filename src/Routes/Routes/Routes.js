@@ -1,7 +1,9 @@
 import Blog from "../../Component/Blog/Blog";
 import CardDetails from "../../Component/cardDetails/CardDetails";
+import CardArea from "../../Component/CartArea/CardArea";
 import Courses from "../../Component/Courses/Courses";
 import Login from "../../Component/Login/Login";
+import PrivetRoute from "../../Component/PrivetRoute/PrivetRoute";
 
 import Register from "../../Component/Register/Register";
 import Main from "../../Layout/Main";
@@ -34,7 +36,12 @@ export const routes =createBrowserRouter([
             {
                 path:'/login',
                 element:<Login></Login>
+            },
+            {
+                path:'checkout',
+                element:<PrivetRoute><CardArea></CardArea></PrivetRoute>
             }
+        
 
         ]
         

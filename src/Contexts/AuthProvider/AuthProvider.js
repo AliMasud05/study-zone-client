@@ -10,6 +10,17 @@ const auth =getAuth(app);
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [enroll,setEnroll]=useState([]);
+    const handleCheckOut=(item)=>{
+         setEnroll(item);
+    }
+    const [theme,setTheme]=useState("light-theme")
+    const handleTheme=()=>{
+       theme==="dark-theme" ? setTheme("light-theme"):setTheme("dark-theme")
+    }
+    useEffect(()=>{
+        document.body.className=theme;
+    },[theme])
 
 
     const providerLogin = (provider) => {
@@ -30,10 +41,6 @@ const AuthProvider = ({children}) => {
         return updateProfile(auth.currentUser, profile);
     }
 
-    const verifyEmail = () => {
-        return sendEmailVerification(auth.currentUser);
-    }
-
     const logOut = () => {
         setLoading(true);
         return signOut(auth);
@@ -45,6 +52,7 @@ const AuthProvider = ({children}) => {
 
             if (currentUser === null || currentUser.emailVerified) {
                 setUser(currentUser);
+                
             }
             setLoading(false);
         });
@@ -56,15 +64,8 @@ const AuthProvider = ({children}) => {
     }, [])
 
     const authInfo = {
-        user,
-        loading,
-        setLoading,
-        providerLogin,
-        logOut,
-        updateUserProfile,
-        verifyEmail,
-        createUser,
-        signIn
+        user,loading,  setLoading,  providerLogin,  logOut,  updateUserProfile,createUser,
+        signIn, enroll, setEnroll, handleCheckOut, handleTheme
     };
     return (
         <AuthContext.Provider value={authInfo}>

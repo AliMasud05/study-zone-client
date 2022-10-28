@@ -1,9 +1,18 @@
 import React from 'react';
+import { useContext } from 'react';
 
 import { Link} from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 
 const Header = () => {
+    const { user, logOut, handleTheme }=useContext(AuthContext);
+    console.log(user);
+    const handleLogOut=()=>{
+        logOut()
+        .then(()=>{})
+        .catch(error=>console.error(error))
+    }
     return (
         <div className="sticky top-0  z-50 navbar bg-base-100 lg:w-11/12 mx-auto">
             <div className="navbar-start">
@@ -19,6 +28,7 @@ const Header = () => {
                         <li><Link>BLOG</Link></li>
                         <li><Link to='register'>REGISTER</Link></li>
                         <li><Link to='/login'>LOGIN</Link></li>
+                        <input type="checkbox" className="toggle toggle-md" checked />
                     </ul>
                 </div>
                 <Link className="btn btn-ghost normal-case text-xl">daisyUI</Link>
@@ -30,13 +40,18 @@ const Header = () => {
                     
                     <li><Link>FAQ</Link></li>
                     <li><Link to='/blog'>BLOG</Link></li>
+
+                        <button onClick={handleLogOut}>LOGOUT</button>
                     <li><Link to='/register'>REGISTER</Link></li>
                     <li><Link to='/login'>LOGIN</Link></li>
+                    
+                    <li><Link to='/checkout'>CHECKOUT</Link></li>
+                    <li onClick={handleTheme}><p>theme</p></li>
                 </ul>
             </div>
             <div className="navbar-end">
-                <p>name</p>
-                <img className='rounded-lg w-12 h-12' src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" />
+                <span>{user?.displayName}</span>
+                <img className='rounded-lg w-12 h-12' src={user?.photoUrl} alt="" />
             </div>
         </div>
     );
